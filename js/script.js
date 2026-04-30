@@ -62,10 +62,10 @@ function initLogoBlue() {
 
     gsap.fromTo(logo,
         {
-            filter: 'hue-rotate(0deg) saturate(1) brightness(1) drop-shadow(0 0 0px rgba(106,168,200,0))',
+            filter: 'hue-rotate(10deg) saturate(1) brightness(1) drop-shadow(0 0 0px rgba(6, 211, 247, 0))',
         },
         {
-            filter: 'hue-rotate(28deg) saturate(5) brightness(1.4) drop-shadow(0 0 18px rgba(106,168,200,0.9))',
+            filter: 'hue-rotate(30deg) saturate(2) brightness(2.4) drop-shadow(0 0 18px rgba(53, 235, 241, 0.97))',
             ease: 'none',
             scrollTrigger: {
                 start: 'top top',
