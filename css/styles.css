@@ -1135,9 +1135,9 @@ footer {
     }
 
     .hero-title {
-        font-size: clamp(38px, 10.5vw, 56px);
-        letter-spacing: -2px;
-        line-height: 0.95;
+        font-size: clamp(32px, 9vw, 52px);
+        letter-spacing: -1px;
+        line-height: 1.05;
         margin-bottom: 24px;
         word-break: normal;
         overflow-wrap: normal;
@@ -1145,6 +1145,7 @@ footer {
 
     .hero-title .word {
         display: block;
+        overflow: visible;
     }
 
     .hero-subtitle {
