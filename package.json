@@ -1,0 +1,19 @@
+{
+  "name": "luarsystem",
+  "version": "1.0.0",
+  "description": "LuarSystem - Desenvolvimento digital de alto impacto",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000"
+  },
+  "keywords": [
+    "desenvolvimento web",
+    "web design",
+    "sistemas web",
+    "e-commerce",
+    "automação"
+  ],
+  "author": "LuarSystem",
+  "license": "MIT",
+  "devDependencies": {}
+}

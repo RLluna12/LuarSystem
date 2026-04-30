@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LuarSystem - Desenvolvimento digital de alto impacto para empresas que querem liderar seus mercados">
+    <meta name="keywords" content="desenvolvimento web, web design, sistemas web, e-commerce, IA, automação">
+    <meta name="theme-color" content="#000000">
+    <title>LuarSystem — Desenvolvimento Digital de Impacto</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-follower" aria-hidden="true"></div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator" aria-hidden="true"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="main-nav" role="navigation" aria-label="Menu Principal">
+        <div class="logo">
+            <div class="logo-icon">
+                <img src="public/logo.png" alt="LuarSystem Logo">
+            </div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    <div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-label="Seção Principal">
+        <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+            <source src="public/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="grid-overlay" aria-hidden="true"></div>
+        <div class="floating-shapes" aria-hidden="true">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-label">Desenvolvimento digital sob medida para empresas ambiciosas</div>
+            <h1 class="hero-title">
+                <span class="word">Construímos</span>
+                <span class="word"><span class="gradient-text" data-text="Soluções">Soluções</span></span>
+                <span class="word">Digitais</span>
+            </h1>
+            <p class="hero-subtitle">
+                Da estratégia à entrega: criamos sites, sistemas e automações 
+com IA que colocam sua marca à frente da concorrência.
+            </p>
+            <div class="hero-cta">
+                <a href="#contato" class="btn">Iniciar Projeto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services reveal" id="servicos" aria-labelledby="servicos-title">
+        <div class="section-header">
+            <div class="section-label">O QUE FAZEMOS</div>
+            <h2 class="section-title" id="servicos-title">Soluções que transformam negócios em máquinas de resultados</h2>
+        </div>
+        <div class="services-grid" role="list">
+            <article class="service-card" role="listitem">
+                <div class="service-number">01</div>
+                <span class="service-icon" aria-hidden="true">🚀</span>
+                <h3>Sites Premium</h3>
+                <p>Websites de alta performance, design único e arquitetura focada em conversão e experiência do usuário.</p>
+            </article>
+            <article class="service-card" role="listitem">
+                <div class="service-number">02</div>
+                <span class="service-icon" aria-hidden="true">⚡</span>
+                <h3>Sistemas Web</h3>
+                <p>Plataformas robustas e escaláveis para gestão, automação e operações que crescem junto com seu negócio.</p>
+            </article>
+            <article class="service-card" role="listitem">
+                <div class="service-number">03</div>
+                <span class="service-icon" aria-hidden="true">🛒</span>
+                <h3>E-commerce</h3>
+                <p>Lojas virtuais completas com infraestrutura de vendas, pagamentos e gestão integrada de estoque.</p>
+            </article>
+            <article class="service-card" role="listitem">
+                <div class="service-number">04</div>
+                <span class="service-icon" aria-hidden="true">🤖</span>
+                <h3>IA & Automação</h3>
+                <p>Bots inteligentes, processos automatizados e integração de inteligência artificial em workflows empresariais.</p>
+            </article>
+            <article class="service-card" role="listitem">
+                <div class="service-number">05</div>
+                <span class="service-icon" aria-hidden="true">📊</span>
+                <h3>Dashboards & BI</h3>
+                <p>Visualização de dados em tempo real, métricas estratégicas e relatórios que direcionam decisões de negócio.</p>
+            </article>
+            <article class="service-card" role="listitem">
+                <div class="service-number">06</div>
+                <span class="service-icon" aria-hidden="true">🎨</span>
+                <h3>Identidade Digital</h3>
+                <p>Design system completo, branding digital e elementos visuais que consolidam presença de mercado.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats reveal" aria-label="Estatísticas">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="150">0</div>
+                <div class="stat-label">Projetos</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="80">0</div>
+                <div class="stat-label">Clientes</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.9<span style="font-size: 0.5em;">%</span></div>
+                <div class="stat-label">Uptime</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Suporte</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta reveal" id="contato" aria-labelledby="contato-title">
+        <div class="cta-content">
+            <h2 id="contato-title">Pronto para transformar seu negócio?</h2>
+            <p>Vamos conversar sobre como a tecnologia pode acelerar seus resultados</p>
+            <a href="https://wa.me/5511999999999?text=Quero%20conversar%20sobre%20um%20projeto" class="btn" target="_blank" rel="noopener noreferrer">Falar com Especialista</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer role="contentinfo" aria-label="Rodapé">
+        <div class="footer-content">
+             <div class="logo-icon">
+                <img src="public/logo.png" alt="LuarSystem Logo">
+            </div>
+            <div>
+                <div class="footer-brand">LuarSystem</div>
+                <p class="footer-desc">Desenvolvimento digital de alto impacto para empresas que querem liderar seus mercados através da tecnologia.</p>
+            </div>
+            <nav class="footer-section" aria-label="Serviços">
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="#servicos">Sites Premium</a></li>
+                    <li><a href="#servicos">Sistemas Web</a></li>
+                    <li><a href="#servicos">E-commerce</a></li>
+                    <li><a href="#servicos">IA & Automação</a></li>
+                </ul>
+            </nav>
+            <nav class="footer-section" aria-label="Empresa">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="mailto:contato@luarsystem.com">contato@luarsystem.com</a></li>
+                    <li><a href="tel:+5511999999999">+55 11 99999-9999</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 LuarSystem. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+</body>
+</html>
