@@ -765,17 +765,12 @@ nav.main-nav.scrolled {
     opacity: 0;
 }
 
-.project-preview {
+.project-preview video {
     width: 100%;
-    aspect-ratio: 16 / 9;
-    background: var(--navy);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
-
 .project-preview::before {
     content: '▶';
     font-size: 36px;
@@ -785,12 +780,10 @@ nav.main-nav.scrolled {
 
 .project-card:hover .project-preview::before { opacity: 0; }
 
-.project-preview img {
+.project-preview video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .project-card:hover .project-preview img { transform: scale(1.06); }
