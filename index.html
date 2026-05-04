@@ -177,7 +177,7 @@
         <div class="developers-grid">
             <div class="developer-card">
                 <div class="developer-photo">
-                    <img src="public/Raul.png" alt="Foto de Raul">
+                    <img src="public/raul.jpeg" alt="Foto de Raul">
                 </div>
                 <h3 class="developer-name">Raul</h3>
                 <p class="developer-role">Desenvolvedor Full Stack</p>
@@ -217,6 +217,70 @@
                     </a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Promo Section -->
+    <section class="promo" id="promocao" aria-labelledby="promo-title">
+        <div class="promo-bg-glow" aria-hidden="true"></div>
+        <div class="promo-inner">
+            <div class="promo-badge">
+                <span class="promo-badge-fire">🔥</span>
+                OFERTA LIMITADA
+            </div>
+            <h2 class="promo-title" id="promo-title">
+                Seu site profissional<br>
+                <span class="promo-highlight">com preço especial</span>
+            </h2>
+            <p class="promo-desc">
+                Apenas nesta semana: garanta seu projeto digital com condições exclusivas.<br>
+                <strong>Não perca — vagas limitadas!</strong>
+            </p>
+
+            <div class="promo-countdown" aria-label="Contagem regressiva da promoção">
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-days">07</span>
+                    <span class="countdown-label">Dias</span>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-mins">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-secs">00</span>
+                    <span class="countdown-label">Seg</span>
+                </div>
+            </div>
+
+            <div class="promo-perks">
+                <div class="promo-perk">
+                    <span class="promo-perk-icon">✅</span>
+                    Entrega em até 15 dias úteis
+                </div>
+                <div class="promo-perk">
+                    <span class="promo-perk-icon">✅</span>
+                    Design 100% personalizado, da sua escolha
+                </div>
+                <div class="promo-perk">
+                    <span class="promo-perk-icon">✅</span>
+                    Suporte pós-entrega de 15 dias para ajustes e dúvidas
+                </div>
+            </div>
+
+            <a href="https://wa.me/5511925703863?text=Vi%20a%20promo%C3%A7%C3%A3o%20no%20site%20e%20quero%20garantir%20minha%20vaga!" class="btn promo-cta" target="_blank" rel="noopener noreferrer">
+                Quero garantir minha vaga agora!
+            </a>
+
+            <p class="promo-urgency">
+                ⚠️ Restam poucas vagas — oferta encerra em <strong id="promo-days-left">7 dias</strong>
+            </p>
         </div>
     </section>
 
@@ -354,6 +418,46 @@
         </a>
     </div>
 
+    <script>
+    (function () {
+        var PROMO_KEY = 'promo_deadline';
+        var stored = localStorage.getItem(PROMO_KEY);
+        var deadline;
+        if (stored) {
+            deadline = new Date(parseInt(stored, 10));
+        } else {
+            deadline = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+            localStorage.setItem(PROMO_KEY, deadline.getTime().toString());
+        }
+
+        function pad(n) { return n < 10 ? '0' + n : n; }
+
+        function tick() {
+            var diff = deadline - Date.now();
+            if (diff <= 0) {
+                document.getElementById('cd-days').textContent = '00';
+                document.getElementById('cd-hours').textContent = '00';
+                document.getElementById('cd-mins').textContent = '00';
+                document.getElementById('cd-secs').textContent = '00';
+                var el = document.getElementById('promo-days-left');
+                if (el) el.textContent = '0 dias';
+                return;
+            }
+            var days  = Math.floor(diff / 86400000);
+            var hours = Math.floor((diff % 86400000) / 3600000);
+            var mins  = Math.floor((diff % 3600000) / 60000);
+            var secs  = Math.floor((diff % 60000) / 1000);
+            document.getElementById('cd-days').textContent  = pad(days);
+            document.getElementById('cd-hours').textContent = pad(hours);
+            document.getElementById('cd-mins').textContent  = pad(mins);
+            document.getElementById('cd-secs').textContent  = pad(secs);
+            var el = document.getElementById('promo-days-left');
+            if (el) el.textContent = days + (days === 1 ? ' dia' : ' dias');
+            setTimeout(tick, 1000);
+        }
+        tick();
+    })();
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
@@ -371,13 +475,13 @@
             widget.classList.add('wa-widget--visible');
         }, 800);
 
-        /* Popup: aparece após 3s, apenas 1x por sessão */
+        /* Popup: aparece após 5s, apenas 1x por sessão */
         if (!sessionStorage.getItem(SESSION_KEY)) {
             setTimeout(function () {
                 popup.classList.add('wa-popup--visible');
                 popup.setAttribute('aria-hidden', 'false');
                 btn.classList.add('wa-button--pulse');
-            }, 3000);
+            }, 5000);
         }
 
         function closePopup() {
