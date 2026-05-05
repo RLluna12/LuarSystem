@@ -388,6 +388,49 @@
         </div>
     </footer>
 
+    <!-- AI Chatbot Widget -->
+    <div class="ai-widget" id="aiWidget">
+        <div class="ai-window" id="aiWindow" role="dialog" aria-label="Assistente IA LuarSystem" aria-hidden="true">
+            <div class="ai-header">
+                <div class="ai-header-info">
+                    <div class="ai-avatar-wrap">
+                        <img class="ai-avatar" src="public/logo.png" alt="LuarSystem IA">
+                        <span class="ai-status-dot" aria-hidden="true"></span>
+                    </div>
+                    <div class="ai-header-text">
+                        <span class="ai-name">LuarSystem IA</span>
+                        <span class="ai-status">● Online agora</span>
+                    </div>
+                </div>
+                <button class="ai-close" id="aiClose" aria-label="Fechar chat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="ai-messages" id="aiMessages">
+                <div class="ai-msg ai-msg--bot">
+                    <div class="ai-bubble">👋 Olá! Sou o assistente da <strong>LuarSystem</strong>. Como posso te ajudar hoje?</div>
+                </div>
+            </div>
+            <div class="ai-suggestions" id="aiSuggestions">
+                <button class="ai-suggestion" data-text="Quero um site profissional">💻 Quero um site profissional</button>
+                <button class="ai-suggestion" data-text="Preciso de automação com IA">🤖 Automação com IA</button>
+                <button class="ai-suggestion" data-text="Qual o preço dos serviços?">💰 Preços e planos</button>
+            </div>
+            <div class="ai-input-area">
+                <input class="ai-input" id="aiInput" type="text" placeholder="Digite sua mensagem..." autocomplete="off" maxlength="500">
+                <button class="ai-send" id="aiSend" aria-label="Enviar">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+            </div>
+        </div>
+        <button class="ai-toggle" id="aiToggle" aria-label="Abrir assistente IA" aria-expanded="false">
+            <svg class="ai-toggle-icon ai-toggle-icon--chat" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9h-2V5h2v6zm0 4h-2v-2h2v2z"/></svg>
+            <svg class="ai-toggle-icon ai-toggle-icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            <span class="ai-toggle-ping" aria-hidden="true"></span>
+            <span class="ai-toggle-badge" aria-hidden="true">IA</span>
+        </button>
+    </div>
+
     <!-- WhatsApp Float Widget -->
     <div class="wa-widget" id="waWidget" aria-live="polite">
         <div class="wa-popup" id="waPopup" role="dialog" aria-label="Mensagem da LuarSystem" aria-hidden="true">
@@ -462,6 +505,110 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+    /* ── AI Chatbot Widget ── */
+    (function () {
+        /* ⚠️ Substitua pela URL do seu webhook n8n */
+        var N8N_WEBHOOK_URL = 'SUA_URL_DO_WEBHOOK_N8N_AQUI';
+
+        var sessionId = 'ls_' + Math.random().toString(36).slice(2, 11);
+        var widget    = document.getElementById('aiWidget');
+        var win       = document.getElementById('aiWindow');
+        var toggle    = document.getElementById('aiToggle');
+        var closeBtn  = document.getElementById('aiClose');
+        var input     = document.getElementById('aiInput');
+        var sendBtn   = document.getElementById('aiSend');
+        var msgBox    = document.getElementById('aiMessages');
+        var suggest   = document.getElementById('aiSuggestions');
+        var isOpen    = false;
+
+        setTimeout(function () { widget.classList.add('ai-widget--visible'); }, 1200);
+
+        function openChat() {
+            isOpen = true;
+            win.classList.add('ai-window--visible');
+            win.setAttribute('aria-hidden', 'false');
+            toggle.setAttribute('aria-expanded', 'true');
+            toggle.classList.add('ai-toggle--open');
+            setTimeout(function () { input.focus(); }, 300);
+        }
+
+        function closeChat() {
+            isOpen = false;
+            win.classList.remove('ai-window--visible');
+            win.setAttribute('aria-hidden', 'true');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.classList.remove('ai-toggle--open');
+        }
+
+        toggle.addEventListener('click', function () { isOpen ? closeChat() : openChat(); });
+        closeBtn.addEventListener('click', function (e) { e.preventDefault(); closeChat(); });
+
+        function addMsg(text, isBot) {
+            var d = document.createElement('div');
+            d.className = 'ai-msg ' + (isBot ? 'ai-msg--bot' : 'ai-msg--user');
+            var b = document.createElement('div');
+            b.className = 'ai-bubble';
+            b.innerHTML = isBot ? text : escapeHtml(text);
+            d.appendChild(b);
+            msgBox.appendChild(d);
+            msgBox.scrollTop = msgBox.scrollHeight;
+            return d;
+        }
+
+        function showTyping() {
+            var d = document.createElement('div');
+            d.className = 'ai-msg ai-msg--bot';
+            d.innerHTML = '<div class="ai-bubble ai-typing"><span></span><span></span><span></span></div>';
+            msgBox.appendChild(d);
+            msgBox.scrollTop = msgBox.scrollHeight;
+            return d;
+        }
+
+        function escapeHtml(t) {
+            return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        }
+
+        function send(text) {
+            text = text.trim();
+            if (!text) return;
+            suggest.style.display = 'none';
+            addMsg(text, false);
+            input.value = '';
+            input.disabled = true;
+            sendBtn.disabled = true;
+            var typing = showTyping();
+            fetch(N8N_WEBHOOK_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: text, sessionId: sessionId })
+            })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+                typing.remove();
+                var reply = data.response || data.output || data.text || data.message
+                    || 'Obrigado pelo contato! Em breve nossa equipe retornará. 😊';
+                addMsg(reply, true);
+            })
+            .catch(function () {
+                typing.remove();
+                addMsg('Ops, tive um problema de conexão. Fale conosco pelo WhatsApp! 📱', true);
+            })
+            .finally(function () {
+                input.disabled = false;
+                sendBtn.disabled = false;
+                input.focus();
+            });
+        }
+
+        sendBtn.addEventListener('click', function () { send(input.value); });
+        input.addEventListener('keydown', function (e) { if (e.key === 'Enter') send(input.value); });
+
+        document.querySelectorAll('.ai-suggestion').forEach(function (btn) {
+            btn.addEventListener('click', function () { send(btn.getAttribute('data-text')); });
+        });
+    })();
+    </script>
     <script>
     (function () {
         var SESSION_KEY = 'wa_popup_shown';
