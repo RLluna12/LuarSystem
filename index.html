@@ -509,7 +509,7 @@
     /* ── AI Chatbot Widget ── */
     (function () {
         /* ⚠️ Substitua pela URL do seu webhook n8n */
-        var N8N_WEBHOOK_URL = 'SUA_URL_DO_WEBHOOK_N8N_AQUI';
+        var N8N_WEBHOOK_URL = 'https://lucasdev00.app.n8n.cloud/webhook/14979f9c-9e2d-4e1d-abe3-dfe75c725f8e/chat';
 
         var sessionId = 'ls_' + Math.random().toString(36).slice(2, 11);
         var widget    = document.getElementById('aiWidget');
@@ -581,7 +581,7 @@
             fetch(N8N_WEBHOOK_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message: text, sessionId: sessionId })
+                body: JSON.stringify({ action: 'sendMessage', chatInput: text, sessionId: sessionId })
             })
             .then(function (r) { return r.json(); })
             .then(function (data) {
