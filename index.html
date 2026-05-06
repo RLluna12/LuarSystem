@@ -530,7 +530,9 @@
             win.setAttribute('aria-hidden', 'false');
             toggle.setAttribute('aria-expanded', 'true');
             toggle.classList.add('ai-toggle--open');
-            setTimeout(function () { input.focus(); }, 300);
+            if (!/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+                setTimeout(function () { input.focus(); }, 300);
+            }
         }
 
         function closeChat() {
