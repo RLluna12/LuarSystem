@@ -150,6 +150,78 @@
         </div>
     </section>
 
+    <!-- Setores IA Section -->
+    <section class="setores-ia" id="setores-ia" aria-labelledby="setores-ia-title">
+        <div class="setores-ia-inner">
+            <div class="setores-ia-left">
+                <h2 class="setores-ia-title" id="setores-ia-title">Diversos setores sendo transformados <span class="gradient-text" data-text="com IA">com IA</span></h2>
+                <div class="setores-accordion" id="setoresAccordion">
+                    <div class="setor-item setor-item--open">
+                        <button class="setor-trigger" aria-expanded="true">
+                            <svg class="setor-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                            <span class="setor-name">Saúde</span>
+                        </button>
+                        <div class="setor-body">
+                            <p>Agentes IA podem realizar a triagem inicial de pacientes com base nos sintomas, direcionando-os aos especialistas corretos, além de gerenciar agendamentos e esclarecer dúvidas frequentes.</p>
+                        </div>
+                    </div>
+                    <div class="setor-item">
+                        <button class="setor-trigger" aria-expanded="false">
+                            <svg class="setor-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                            <span class="setor-name">Educação</span>
+                        </button>
+                        <div class="setor-body">
+                            <p>Agentes IA podem auxiliar na matrícula de cursos, na cobrança de mensalidades e nas dúvidas acadêmicas frequentes. Eles podem ajudar os estudantes não só durante o processo de inscrição, mas também ao longo de todo o curso, como um monitor ou professor.</p>
+                        </div>
+                    </div>
+                    <div class="setor-item">
+                        <button class="setor-trigger" aria-expanded="false">
+                            <svg class="setor-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                            <span class="setor-name">Infoproduto e SaaS</span>
+                        </button>
+                        <div class="setor-body">
+                            <p>Agentes IA podem ajudar a aumentar as conversões, nutrindo e direcionando leads em todas as etapas do funil, recuperando carrinhos abandonados e até mesmo conduzindo o onboarding e a ativação de seus clientes.</p>
+                        </div>
+                    </div>
+                    <div class="setor-item">
+                        <button class="setor-trigger" aria-expanded="false">
+                            <svg class="setor-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                            <span class="setor-name">Times de vendas</span>
+                        </button>
+                        <div class="setor-body">
+                            <p>Agentes IA podem qualificar leads de forma automática, interagindo com potenciais clientes para entender suas necessidades e interesses, direcionando os leads mais qualificados para o time de vendas.</p>
+                        </div>
+                    </div>
+                    <div class="setor-item">
+                        <button class="setor-trigger" aria-expanded="false">
+                            <svg class="setor-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                            <span class="setor-name">Suporte ao cliente</span>
+                        </button>
+                        <div class="setor-body">
+                            <p>Agentes IA podem lidar com até 70% das demandas e dúvidas frequentes. Questões mais complexas podem ser escaladas automaticamente para agentes humanos assim que a IA não souber a resposta.</p>
+                        </div>
+                    </div>
+                    <div class="setor-item">
+                        <button class="setor-trigger" aria-expanded="false">
+                            <svg class="setor-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                            <span class="setor-name">Mercado Imobiliário</span>
+                        </button>
+                        <div class="setor-body">
+                            <p>Agentes IA podem fornecer detalhes instantâneos sobre propriedades, agendar visitas, engajar e qualificar compradores, e direcionar o corretor mais adequado para cada cliente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="setores-ia-right">
+                <div class="video-preview">
+                    <video autoplay muted loop playsinline aria-hidden="true">
+                        <source src="public/iaagent1.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Marquee Strip -->
     <div class="marquee-strip" aria-hidden="true">
         <div class="marquee-track">
@@ -423,43 +495,18 @@
                 </button>
             </div>
         </div>
+        <div class="ai-chat-bubble" id="aiChatBubble">
+            Fale com nossa equipe de atendimento 😊
+            <button class="ai-chat-bubble-close" id="aiChatBubbleClose" aria-label="Fechar">×</button>
+        </div>
         <button class="ai-toggle" id="aiToggle" aria-label="Abrir assistente IA" aria-expanded="false">
-            <svg class="ai-toggle-icon ai-toggle-icon--chat" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 9h-2V5h2v6zm0 4h-2v-2h2v2z"/></svg>
+            <svg class="ai-toggle-icon ai-toggle-icon--chat" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             <svg class="ai-toggle-icon ai-toggle-icon--close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             <span class="ai-toggle-ping" aria-hidden="true"></span>
-            <span class="ai-toggle-badge" aria-hidden="true">IA</span>
+            <span class="ai-toggle-badge" aria-hidden="true">1</span>
         </button>
     </div>
 
-    <!-- WhatsApp Float Widget -->
-    <div class="wa-widget" id="waWidget" aria-live="polite">
-        <div class="wa-popup" id="waPopup" role="dialog" aria-label="Mensagem da LuarSystem" aria-hidden="true">
-            <button class="wa-popup-close" id="waPopupClose" aria-label="Fechar mensagem">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-            </button>
-            <div class="wa-popup-header">
-                <div class="wa-popup-avatar-wrap">
-                    <img class="wa-popup-avatar" src="public/logo.png" alt="LuarSystem">
-                    <span class="wa-popup-status-dot" aria-hidden="true"></span>
-                </div>
-                <div class="wa-popup-meta">
-                    <span class="wa-popup-name">LuarSystem</span>
-                    <span class="wa-popup-online">● Online agora</span>
-                </div>
-            </div>
-            <p class="wa-popup-text">👋 Olá! Precisa de site profissional, automação ou sistema para sua empresa? Fale com a LuarSystem agora.</p>
-            <a class="wa-popup-cta" href="https://wa.me/5511925056089?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LuarSystem%20e%20gostaria%20de%20falar%20sobre%20um%20projeto" target="_blank" rel="noopener noreferrer">
-                Iniciar conversa
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-        </div>
-        <a class="wa-button" id="waButton" href="https://wa.me/5511925703863?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20LuarSystem%20e%20gostaria%20de%20falar%20sobre%20um%20projeto" target="_blank" rel="noopener noreferrer" aria-label="Falar com a LuarSystem no WhatsApp">
-            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
-            <span class="wa-ping" aria-hidden="true"></span>
-        </a>
-    </div>
 
     <script>
     (function () {
@@ -509,7 +556,7 @@
     /* ── AI Chatbot Widget ── */
     (function () {
         /* ⚠️ Substitua pela URL do seu webhook n8n */
-        var N8N_WEBHOOK_URL = 'https://lucasdev00.app.n8n.cloud/webhook/14979f9c-9e2d-4e1d-abe3-dfe75c725f8e/chat';
+        var N8N_WEBHOOK_URL = 'https://lucashellen.app.n8n.cloud/webhook/14979f9c-9e2d-4e1d-abe3-dfe75c725f8e/chat';
 
         var sessionId = 'ls_' + Math.random().toString(36).slice(2, 11);
         var widget    = document.getElementById('aiWidget');
@@ -521,11 +568,14 @@
         var msgBox    = document.getElementById('aiMessages');
         var suggest   = document.getElementById('aiSuggestions');
         var isOpen    = false;
+        var bubble    = document.getElementById('aiChatBubble');
+        var bubbleClose = document.getElementById('aiChatBubbleClose');
 
         setTimeout(function () { widget.classList.add('ai-widget--visible'); }, 1200);
 
         function openChat() {
             isOpen = true;
+            bubble.classList.remove('ai-chat-bubble--visible');
             win.classList.add('ai-window--visible');
             win.setAttribute('aria-hidden', 'false');
             toggle.setAttribute('aria-expanded', 'true');
@@ -545,6 +595,18 @@
 
         toggle.addEventListener('click', function () { isOpen ? closeChat() : openChat(); });
         closeBtn.addEventListener('click', function (e) { e.preventDefault(); closeChat(); });
+
+        if (!sessionStorage.getItem('ai_bubble_shown')) {
+            setTimeout(function () {
+                if (!isOpen) bubble.classList.add('ai-chat-bubble--visible');
+                sessionStorage.setItem('ai_bubble_shown', '1');
+            }, 3000);
+        }
+        bubbleClose.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            bubble.classList.remove('ai-chat-bubble--visible');
+        });
 
         function addMsg(text, isBot) {
             var d = document.createElement('div');
@@ -612,41 +674,21 @@
     })();
     </script>
     <script>
+    /* ── Setores Accordion ── */
     (function () {
-        var SESSION_KEY = 'wa_popup_shown';
-        var widget = document.getElementById('waWidget');
-        var popup  = document.getElementById('waPopup');
-        var btn    = document.getElementById('waButton');
-        var close  = document.getElementById('waPopupClose');
-
-        /* Entrada do botão: slide up após 800ms */
-        setTimeout(function () {
-            widget.classList.add('wa-widget--visible');
-        }, 800);
-
-        /* Popup: aparece após 5s, apenas 1x por sessão */
-        if (!sessionStorage.getItem(SESSION_KEY)) {
-            setTimeout(function () {
-                popup.classList.add('wa-popup--visible');
-                popup.setAttribute('aria-hidden', 'false');
-                btn.classList.add('wa-button--pulse');
-            }, 5000);
-        }
-
-        function closePopup() {
-            popup.classList.remove('wa-popup--visible');
-            popup.classList.add('wa-popup--exit');
-            popup.setAttribute('aria-hidden', 'true');
-            btn.classList.remove('wa-button--pulse');
-            sessionStorage.setItem(SESSION_KEY, '1');
-            setTimeout(function () {
-                popup.classList.remove('wa-popup--exit');
-            }, 350);
-        }
-
-        close.addEventListener('click', function (e) {
-            e.preventDefault();
-            closePopup();
+        var items = document.querySelectorAll('.setor-item');
+        items.forEach(function (item) {
+            item.querySelector('.setor-trigger').addEventListener('click', function () {
+                var isOpen = item.classList.contains('setor-item--open');
+                items.forEach(function (i) {
+                    i.classList.remove('setor-item--open');
+                    i.querySelector('.setor-trigger').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    item.classList.add('setor-item--open');
+                    item.querySelector('.setor-trigger').setAttribute('aria-expanded', 'true');
+                }
+            });
         });
     })();
     </script>
