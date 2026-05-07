@@ -463,6 +463,8 @@ nav.main-nav.scrolled {
     border: none;
     cursor: pointer;
     will-change: transform;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .btn::before {
@@ -1199,6 +1201,10 @@ footer {
     .project-card:hover,
     .developer-card:hover {
         transform: none !important;
+    }
+
+    .btn {
+        will-change: auto;
     }
 }
 
@@ -2221,7 +2227,7 @@ footer {
     display: block;
 }
 @media (max-width: 960px) {
-    .video-preview { width: 240px; height: 440px; }
+    .video-preview { width: 260px; height: 440px; }
 }
 .phone-placeholder {
     width: 100%;
@@ -2311,15 +2317,39 @@ footer {
 @media (max-width: 768px) {
     .promo { padding: 100px 24px; }
 
-    .countdown-block {
-        min-width: 70px;
-        padding: 14px 16px;
+    .promo-countdown {
+        flex-wrap: nowrap;
+        gap: 6px;
+        width: 100%;
     }
 
-    .countdown-num { font-size: 34px; }
-    .countdown-sep { font-size: 28px; margin-top: -14px; }
+    .countdown-block {
+        min-width: unset;
+        flex: 1;
+        padding: 12px 8px;
+    }
 
-    .promo-perks { flex-direction: column; align-items: center; gap: 12px; }
+    .countdown-num {
+        font-size: 28px;
+        letter-spacing: -1px;
+    }
+
+    .countdown-sep {
+        font-size: 22px;
+        margin-top: -10px;
+        flex-shrink: 0;
+    }
+
+    .promo-perks {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .promo-perk {
+        align-items: flex-start;
+    }
 
     .promo-cta {
         width: 100%;
